@@ -2,10 +2,13 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://memories-project-mern-test.herokuapp.com",
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json",
-  },
+  mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+      credentials: 'same-origin'
 });
 
 API.interceptors.request.use((req) => {
